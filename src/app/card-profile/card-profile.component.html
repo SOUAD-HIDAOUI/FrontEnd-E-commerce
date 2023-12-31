@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Ajoutez le lien Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+<div class="container rounded bg-white mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-3 border-right">
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+        <img class="rounded-circle mt-5" width="150px" src="https://imgs.search.brave.com/9pMxGifLAkbaimXtMvGF_750jz1x5Mcp-INtZ-EIqUk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHNkLWdyYXR1aXQv/Zm9ybWUtY2VyY2xl/LWlzb2xlXzE3NjM4/Mi03MjIuanBn" alt="Icône du menu" style="width: 100px; height:100px; margin-right: 20px;">
+        <span class="font-weight-bold" id="username">{{User?.prenom}}</span>
+        <span class="text-black-50" id="useremail">{{User?.email}}</span>
+      </div>
+    </div>
+    <div class="col-md-5 border-right">
+      <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="text-right">Profile Settings</h4>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <label class="labels">Name</label>
+            <input type="text" class="form-control" id="firstName" [(ngModel)]="User?.prenom" [readonly]="!isEditing">
+          </div>
+          <div class="col-md-6">
+            <label class="labels">Surname</label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="User?.nom" [readonly]="!isEditing">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-12">
+            <label class="labels">Email</label>
+            <input type="text" class="form-control" id="email" [(ngModel)]="User?.email" [readonly]="!isEditing">
+          </div>
+          <div class="col-md-12">
+            <label class="labels">Password</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="password" placeholder="********" value="" readonly>
+              <div class="input-group-append">
+                  <span class="input-group-text" onclick="togglePassword()">
+                    <i class="fa fa-eye" id="togglePassword"></i>
+                  </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5 text-center">
+          <div class="btn-group">
+
+            <button class="btn btn-secondary" (click)="toggleEdit()">{{ isEditing ? 'Cancel' : 'Edit' }}</button>
+            <button class="btn btn-primary profile-button" (click)="saveProfile()" [disabled]="!isEditing">Save Profile</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  function toggleEdit() {
+    const inputFields = document.querySelectorAll('.form-control');
+    inputFields.forEach(input => {
+      input.readOnly = !input.readOnly;
+    });
+  }
+
+  function togglePassword() {
+    const passwordInput = document.getElementById("password");
+    const toggleIcon = document.getElementById("togglePassword");
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      toggleIcon.classList.remove("fa-eye");
+      toggleIcon.classList.add("fa-eye-slash");
+    } else {
+      passwordInput.type = "password";
+      toggleIcon.classList.remove("fa-eye-slash");
+      toggleIcon.classList.add("fa-eye");
+    }
+  }
+</script>
+</body>
+
+</html>

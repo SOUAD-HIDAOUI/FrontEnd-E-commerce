@@ -22,7 +22,9 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "esModuleInterop": true, // Add this line
+    "allowSyntheticDefaultImports": true // Add this line
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

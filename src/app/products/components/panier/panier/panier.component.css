@@ -1,0 +1,21 @@
+.product-card {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.product-image {
+  width: 200px;
+  height: 200px;
+  margin-right: 20px;
+}
+
+.product-details {
+  flex-grow: 2;
+}
+.small-image {
+  width: 20px; /* Largeur souhaitée */
+  height: 20px; /* Hauteur souhaitée */
+}

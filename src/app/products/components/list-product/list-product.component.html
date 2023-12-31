@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-eQaFbHV5q6MRyY5LGV6rwXsbuEuOElY71UOpJiRMYLzVnUZ5dHD2Fddgff2TPIvz" crossorigin="anonymous"></script>
+
+
+
+
+
+</head>
+<body>
+<h2>E-commerce</h2>
+
+
+
+<nav class="navbar navbar-light" style="background-color: #166d36;">
+  <a class="navbar-brand" href="/panier">
+
+
+
+    <img src="https://th.bing.com/th/id/OIP.VaPKApQ8DYkPnP7eNm9JIQHaHa?pid=ImgDet&rs=1" alt="Icône du menu" style="width: 30px; height: 30px;" >
+  </a>  <div class="ml-auto">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</div>
+  <div class="input-group bg" style="justify-content: center">
+    <div class="form">
+      <div class="form-outline" style="width: 400px" style="margin-top: 5px">
+        <input type="search" id="form1" class="form-control" placeholder="Search" [(ngModel)]="searchedText" (ngModelChange)="searchTextInput()" />
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="searchTextInput()">Search</button>
+  </div>
+
+<!--  <div class="collapse navbar-collapse" id="navbarText">-->
+<!--    <ul class="navbar-nav mr-auto">-->
+<!--    &lt;!&ndash; ... existing menu items ... &ndash;&gt;-->
+
+<!--    <li class="nav-item">-->
+<!--      <a class="nav-link" href="#" (click)="toggleCategoryDropdown()">Categories</a>-->
+<!--      <div class="dropdown" *ngIf="showCategoryDropdown">-->
+<!--        <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdownButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--          Select Category-->
+<!--        </button>-->
+
+<!--        <div class="dropdown-menu" aria-labelledby="categoryDropdownButton">-->
+<!--          <a class="dropdown-item" (click)="getProductsByCategory('all')">All</a>-->
+<!--          <a class="dropdown-item" *ngFor="let option of categories" (click)="getProductsByCategory(option)">{{ option }}</a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--    <span class="navbar-text">-->
+<!--        Navbar text with an inline element-->
+<!--      </span>-->
+<!--  </div>-->
+
+
+<!--      <div style="position: absolute; top: 10px; right: 10px;">-->
+<!--        <div class="btn-group" role="group" style="display: flex; align-items: center;">-->
+<!--          <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height: 40px; padding: 5px 10px;">-->
+<!--            <a class="navbar-brand" style="display: flex; align-items: center;">-->
+<!--              <img src="https://imgs.search.brave.com/9pMxGifLAkbaimXtMvGF_750jz1x5Mcp-INtZ-EIqUk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHNkLWdyYXR1aXQv/Zm9ybWUtY2VyY2xl/LWlzb2xlXzE3NjM4/Mi03MjIuanBn" alt="Icône du menu" style="width: 23px; height: 23px; margin-right: 5px;">-->
+<!--              <span style="font-size: 14px;">Bonjour, {{User?.prenom}}</span>-->
+<!--            </a>-->
+<!--          </button>-->
+
+<!--          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">-->
+<!--            <div *ngIf="isLoggedIn()">-->
+<!--              <a class="dropdown-item" href="#">Edit Profile</a>-->
+<!--              <a class="dropdown-item" (click)="logoutUser()">Sign out</a>-->
+<!--            </div>-->
+<!--            <div *ngIf="!isLoggedIn()">-->
+<!--              <a class="dropdown-item" (click)="router.navigate(['/login'])">Sign in</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+  <div style="position: absolute; top: 10px; right: 10px;">
+    <div class="btn-group" role="group" style="display: flex; align-items: center;">
+      <button type="button" class="btn btn-primary" (click)="toggleMenu()" style="height: 40px; padding: 5px 10px;">
+        <a class="navbar-brand" style="display: flex; align-items: center;">
+          <img src="https://imgs.search.brave.com/9pMxGifLAkbaimXtMvGF_750jz1x5Mcp-INtZ-EIqUk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHNkLWdyYXR1aXQv/Zm9ybWUtY2VyY2xl/LWlzb2xlXzE3NjM4/Mi03MjIuanBn" alt="Icône du menu" style="width: 23px; height: 23px; margin-right: 5px;">
+          <span style="font-size: 14px;">Bonjour, {{User?.prenom}}</span>
+        </a>
+      </button>
+
+      <div *ngIf="isMenuOpen" class="custom-menu">
+        <ul class="list-group">
+          <li class="list-group-item" (click)="goToProfile()">Profile</li>
+          <li class="list-group-item" (click)="logoutUser()">Sign out</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+</nav>
+
+<!--div class="my-2">
+  <label class="my-1 w-25">Categories:</label>
+  <select class="form-control" (ngModelChange)="getProductsByCategory(keyword)">
+    <option value="all" selected>All</option>
+    <option *ngFor="let option of categories" [value]="option">{{option}}</option>
+  </select>
+</div-->
+
+<div class="row">
+
+  <div class="col-md-3 col-sm-4" *ngFor="let produit of produ">
+
+    <h5 class="card-title">{{ produit.title }}</h5>
+    <div class="card mb-4">
+      <img src="{{produit.images[0]}}"class="card-img-top" alt="{{ produit.title }}" width="200" height="200">
+      <div class="card-body" >
+        <div class="form-group">
+        </div>
+        <p class="card-text">Price : {{ produit.price | currency:'USD':'symbol' }}</p>
+        <!--h5 [ngStyle]="{color: getColor(produit)}">{{ getState(produit) }}</h5-->
+        <!--<p class="card-text" *ngIf="product.availability">Available</p>
+        <p class="card-text" *ngIf="!product.availability">Not Available</p>-->
+        <!-- <button class="btn btn-primary float-left" type="button" (click)="addToCart($event)" >Add to cart</button>-->
+        <button class="btn btn-success" *ngIf="!produit.addButton" (click)="produit.addButton=true">Add To Cart</button>
+        <div class="d-flex w-50" *ngIf="produit.addButton">
+          <input type="number" class ="form form-control" [(ngModel)]="produit.quantity">
+          <button class="btn btn-danger" (click)="addToCart(produit)">Add</button>
+        </div>
+
+        <!-- <button class="btn btn-primary float-right" type="button" (click)="goToDetails(product.id)">Détails</button>-->
+        <button class="btn btn-primary float-right" type="button" [routerLink]="['/details', produit.id]">Détails</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>

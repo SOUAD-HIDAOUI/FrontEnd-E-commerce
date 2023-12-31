@@ -1,0 +1,101 @@
+<div class="card my-5">
+  <h1>Regester User :</h1>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input
+        type="SurName"
+        class="form-control"
+        id="exampleInputEmail4"
+        aria-describedby="emailHelp"
+        name="Name"
+        placeholder="Enter Name"
+        [(ngModel)]="user1.prenom"
+        required
+        #Name="ngModel"
+        [class.is-invalid]="Name.invalid && Name.touched"
+      >
+      <div *ngIf="Name.errors && (Name.invalid && Name.touched)">
+        <small class="text-danger" *ngIf="Name.errors && (Name.invalid && Name.touched)">
+          <small class="text-danger" *ngIf="Name.errors['required']">Name is a required field</small>
+        </small>
+      </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">SurName</label>
+      <input
+        type="SurName"
+        class="form-control"
+        id="exampleInputEmail3"
+        aria-describedby="emailHelp"
+        name="SurName"
+        placeholder="Enter SurName"
+        [(ngModel)]="user1.nom"
+        required
+        #SurName="ngModel"
+        [class.is-invalid]="SurName.invalid && SurName.touched"
+      >
+      <div *ngIf="SurName.errors && (SurName.invalid && SurName.touched)">
+        <small class="text-danger" *ngIf="SurName.errors && (SurName.invalid && SurName.touched)">
+          <small class="text-danger" *ngIf="SurName.errors['required']">SurName is a required field</small>
+        </small>
+      </div>
+
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        name="email"
+        placeholder="Enter email"
+        [(ngModel)]="user1.email"
+        required
+        pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+        #email="ngModel"
+        [class.is-invalid]="email.invalid && email.touched"
+      >
+      <div *ngIf="email.errors && (email.invalid && email.touched)">
+        <small class="text-danger" *ngIf="email.errors['required']">Email is a required field</small>
+        <small class="text-danger" *ngIf="email.errors['pattern']">Please enter a valid Email</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputEmail2"
+          aria-describedby="emailHelp"
+          name="password"
+          placeholder="Enter email"
+          [(ngModel)]="user1.password"
+          required
+          #password="ngModel"
+          [class.is-invalid]="password.invalid && password.touched"
+        >
+        <div *ngIf="password.errors && (password.invalid && password.touched)">
+          <small class="text-danger" *ngIf="password.errors && (password.invalid && password.touched)">
+            <small class="text-danger" *ngIf="password.errors['required']">Password is a required field</small>
+          </small>
+        </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="text" [(ngModel)]="user1.password"
+             class="form-control"
+             id="confirmPassword"
+             name="confirmPassword"
+             placeholder="Confirm your email password"
+             required #confirmPassword="ngModel">
+      <div *ngIf="confirmPassword.errors && (confirmPassword.invalid && confirmPassword.touched)">
+        <small class="text-danger" *ngIf="confirmPassword.errors['required']">Confirm Password is a required field</small>
+        <small class="text-danger" *ngIf="user1.password !== confirmPassword">Passwords do not match</small>
+      </div>    </div>
+    <button type="submit"
+            class="btn btn-info" (click)="onSubmit()">Register</button>
+
+  </div>
+</div>
+    </div>
+    </div>

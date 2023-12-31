@@ -1,0 +1,33 @@
+nav {
+    background-color: brown; /* Couleur de fond du header */
+    color: burlywood; /* Couleur du texte */
+    padding: initial; /* Espacement intérieur du header */
+}
+
+.container {
+    max-width: 1200px; /* Largeur maximale du contenu */
+    margin: 0 auto; /* Centrer le contenu horizontalement */
+    padding: 5px 20px; /* Espacement intérieur du contenu */
+}
+
+.content {
+    display: flex; /* Utilisation de Flexbox pour aligner le logo au centre */
+    align-items: center; /* Aligner verticalement le contenu au centre */
+}
+
+.logo {
+    font-size: 24px; /* Taille de police du logo */
+    margin: 0; /* Supprimer les marges par défaut du titre h2 */
+}
+
+/* Styles pour les liens de navigation si nécessaire */
+nav a {
+    color: blueviolet; /* Couleur des liens */
+    text-decoration: blue; /* Supprimer la soulignement par défaut des liens */
+    margin-right: 20px; /* Espacement entre les liens de navigation */
+}
+
+/* Style pour les liens de navigation au survol */
+nav a:hover {
+    text-decoration: lightsteelblue; /* Soulignement au survol */
+}
