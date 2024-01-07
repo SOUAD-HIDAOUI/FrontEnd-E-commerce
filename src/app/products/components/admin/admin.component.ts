@@ -43,9 +43,13 @@
       }
 
       ngOnInit(): void {
-
-
         const userId = this.loginservice.getUser()?.id;
+
+
+
+
+
+
 
         this.orders = JSON.parse(localStorage.getItem(`commandes_${userId}`)!) || [];
 
