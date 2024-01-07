@@ -13,36 +13,26 @@
 })
 export class CardProfileComponent {
 
-  User: User | undefined=this.loginService.getUser();
-  isEditing: boolean = false;
-  showPassword: boolean = false;
+  User: User | null = this.loginService.getUser() ;
 
   constructor(private productService: ProductService, public router: Router, private panierservice: PanierService,private loginService:LoginService,private userservice:UserService) {
 
   }
-  toggleEdit() {
-    if (this.isEditing) {
-      this.User = { ...this.loginService.getUser() };
-    }
-    this.isEditing = !this.isEditing;
-  }
 
 
-  saveProfile() {
-    if (this.User) {
-      this.userservice.update(this.User).subscribe(
-        (updatedUser) => {
-          console.log('Profile updated successfully:', updatedUser);
-          this.isEditing = false;
-        },
-        (error) => {
-          console.error('Error updating profile:', error);
-        }
-      );
+  test(){
+    if(this.User!=null){
+      this.router.navigate(['profile-settings/${User.id}']);
     }
+    console.error('Unauthorized access to edit profile');
+
+
   }
-  togglePassword() {
-    this.showPassword = !this.showPassword;
+  islogged():boolean{
+    if (this.User!=null){
+      return true;
+    }
+    return false;
   }
 
 

@@ -19,3 +19,71 @@
   width: 20px; /* Largeur souhaitée */
   height: 20px; /* Hauteur souhaitée */
 }
+/* Add these styles to your existing styles or create a new CSS file */
+
+.cartBox {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+.headCart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-header {
+  cursor: pointer;
+}
+
+.table {
+  width: 100%;
+}
+
+.small-image {
+  width: 50px; /* Adjust the size as needed */
+  height: auto;
+}
+
+.quantity {
+  width: 80px;
+}
+
+.btn-danger,
+.btn-success {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.alert-success {
+  margin-top: 20px;
+}
+
+/* Optional: Add hover effects to buttons */
+.btn-danger:hover,
+.btn-success:hover {
+  opacity: 0.8;
+}
+
+/* Optional: Style the table header */
+thead {
+  background-color: #f8f9fa;
+}
+
+tfoot {
+  background-color: #f8f9fa;
+}
+

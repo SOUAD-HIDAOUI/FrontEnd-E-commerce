@@ -1,0 +1,72 @@
+/* Style for the cartBox container */
+.cartBox {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Style for the header inside cartBox */
+.cartBox h2 {
+  color: #333;
+}
+
+/* Style for the headCart section inside cartBox */
+.headCart {
+  /* Add your styles for headCart */
+}
+
+/* Style for the table inside cartBox */
+.table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+/* Style for table headers */
+.table th {
+  background-color: #f2f2f2;
+}
+
+/* Style for table rows */
+.table td, .table th {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Style for the View button */
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* Style for the second table */
+.table.secondTable {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+/* Style for the second table headers */
+.table.secondTable th {
+  background-color: #f2f2f2;
+}
+
+/* Style for the second table rows */
+.table.secondTable td, .table.secondTable th {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Style for the product image in the second table */
+.table.secondTable img {
+  max-width: 80px;
+  max-height: 80px;
+}
+
+/* Add more styles as needed */

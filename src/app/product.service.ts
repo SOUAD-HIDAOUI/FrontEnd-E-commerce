@@ -27,7 +27,8 @@ export class ProductService {
   getAllCategories(){
     return this.http.get('https://dummyjson.com/products/categories');
   }
-  getProductByCategory(keyword:String){
+
+    getProductByCategory(keyword: string | undefined){
     return this.http.get(`https://dummyjson.com/products/category/${keyword}`);
   }
   getProductById(id:any){

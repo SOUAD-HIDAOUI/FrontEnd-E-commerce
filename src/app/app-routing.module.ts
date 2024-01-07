@@ -12,19 +12,28 @@ import {UserListComponent} from "./user-list/user-list.component";
 import {CreateUserComponent} from "./create-user/create-user.component";
 import {LoginComponent} from "./products/components/login/login.component";
 import {CardProfileComponent} from "./card-profile/card-profile.component";
+import {ProfileSettingsComponent} from "./profile-settings/profile-settings.component";
+import {AuthComponent} from "./auth/auth.component";
+import {AuthGaurdService} from "./auth-gaurd.service";
+import {CommentsComponent} from "./comments/comments.component";
+import {AdminComponent} from "./products/components/admin/admin.component";
 
 
 
 
 const appRoutes: Routes = [
   {path:"login" ,component:LoginComponent},
+  {path:"profile-settings/:id" ,component:ProfileSettingsComponent},
   {path:"products" ,component:ListProductComponent },
   {path:"details" ,component:ProductDetailsComponent},
   {path:"profile",component:CardProfileComponent},
+  {path:"comments",component:CommentsComponent},
+  {path:"admin/:id",component:AdminComponent},
   {path:"" ,component:ListProductComponent},
   {path:"cart" ,component:ListProductComponent},
   {path:"details/:id" ,component:ProductDetailsComponent},
   {path:"panier" ,component:PanierComponent},
+  {path:"panier/:id" ,component:PanierComponent},
   { path: 'clients', component: UserListComponent },
   { path: 'clients/addClient', component: CreateUserComponent },
   { path: '', component: UserListComponent },

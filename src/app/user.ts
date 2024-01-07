@@ -7,6 +7,7 @@ export class User {
   prenom:any;
   email:any;
   password:any;
+  confirmPassword: any;
 
 
   constructor(){}

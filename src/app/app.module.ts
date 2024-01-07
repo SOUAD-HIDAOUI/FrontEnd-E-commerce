@@ -18,6 +18,9 @@ import { UserListComponent } from './user-list/user-list.component';
 import {UserService} from "./user.service";
 import { LoginComponent } from './products/components/login/login.component';
 import { CardProfileComponent } from './card-profile/card-profile.component';
+import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
+import { CommentsComponent } from './comments/comments.component';
+import { AdminComponent } from './products/components/admin/admin.component';
 
 
 
@@ -34,6 +37,9 @@ import { CardProfileComponent } from './card-profile/card-profile.component';
     UserListComponent,
     LoginComponent,
     CardProfileComponent,
+    ProfileSettingsComponent,
+    CommentsComponent,
+    AdminComponent,
 
 
 
@@ -45,7 +51,7 @@ import { CardProfileComponent } from './card-profile/card-profile.component';
     MatSlideToggleModule,
     HttpClientModule,
     FormsModule],
-  providers: [ProductService,UserService],
+  providers: [ProductService,UserService,CommentsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,0 +1,71 @@
+<div class="cartBox" *ngIf="isLoggin()">
+  <h2>Order's {{User?.prenom}} :</h2>
+
+  <div class="headCart">
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>OrderId</th>
+      <th>ClientId</th>
+      <th>Date</th>
+      <th style="width: 25%;">Quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of orders">
+      <td>{{ item.orderId}}</td>
+      <td>{{ User?.id }}</td>
+      <td>{{ item.date |date:"shortDate"}}</td>
+      <td> {{item.cart.length}} products</td>
+      <td>
+        <button class="btn btn-primary"  (click)="viewOrderDetails(item)">View</button>
+      </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+<table class="table table-striped" *ngIf="showSecondTable">
+  <thead>
+  <tr>
+    <th>OrderId</th>
+    <th>ClientId</th>
+    <th>Date</th>
+    <th>ProductId</th>
+    <th>Title</th>
+    <th>Total Price</th>
+    <th style="width: 25%;">Quantity</th>
+  </tr>
+  </thead>
+  <tbody *ngIf="selectedOrder">
+  <tr>
+  <tr *ngFor="let item of selectedOrder.cart">
+    <td>{{ selectedOrder.orderId }}</td>
+    <td>{{ User?.id}}</td>
+    <td>{{ selectedOrder.date | date: 'shortDate' }}</td>
+    <td>{{ item.id }}</td>
+    <td> <img [src]="item.images[0]" alt="Product Image" style="max-width: 80px; max-height: 80px;">
+      {{ item.title }}</td>
+    <td>{{ item.price * item.quantity }}</td>
+    <td>{{ item.quantity }}</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </tfoot>
+</table>
+
+

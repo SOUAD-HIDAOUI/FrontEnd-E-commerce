@@ -15,7 +15,7 @@ export class UserService {
     this.usersUrl = 'http://localhost:5000';
   }
   public findAll(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl+"/clients");
+    return this.http.get<User[]>(this.usersUrl+"/clients/");
   }
   public deleteUser(id: number): Observable<any> {
     const deleteUrl = `${this.usersUrl}/clients/delete/${id}`;
@@ -25,9 +25,16 @@ export class UserService {
   public  save(user: User | undefined) {
     return this.http.post<User>(this.usersUrl + "/clients/addClient", user);
   }
-  public update(user: User): Observable<User> {
-    const updateUrl = `${this.usersUrl}/clients/update/${user.id}`;
-    return this.http.post<User>(updateUrl, user);
+  public update(id: number, user: User): Observable<any> {
+    return this.http.post<User>(`${this.usersUrl}/clients/update/${id}`, user);
+  }
+
+  public getById(id: number): Observable<User> {
+    return this.http.get<User>(`${this.usersUrl}/clients/${id}`);
+  }
+  public fetchClientByEmail(email: string): Observable<User> {
+    const fetchByEmailUrl = `${this.usersUrl}/clients/fetchByEmail/${email}`;
+    return this.http.get<User>(fetchByEmailUrl);
   }
 
 

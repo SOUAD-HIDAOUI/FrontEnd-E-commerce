@@ -3,6 +3,7 @@ import {LoginService} from "../../../login.service";
 import {User} from "../../../user";
 import {Router} from "@angular/router";
 import {error} from "@angular/compiler-cli/src/transformers/util";
+import {catchError, Observable, of, switchMap} from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -17,30 +18,62 @@ export  class LoginComponent {
 
 
 
+
+
+
+
   constructor(private servicelogin:LoginService,private  router:Router) {
 
+
   }
 
+  // loginUser() {
+  //   this.servicelogin.registration(this.User).subscribe(
+  //     data=> {console.log("response recieved ");
+  //      this.isLoggedin=true;
+  //      console.log("true")
+  //
+  //       this.router.navigate(['/products']);
+  //
+  //       this.servicelogin.setUser(data);
+  //     }, error=> {
+  //       console.error("exception occured",error);
+  //       this.msg ="Bad credentials ,please enter valid email and password";
+  //     })
+  //
+  //
+  // }
   loginUser() {
     this.servicelogin.registration(this.User).subscribe(
-      data=> {console.log("response recieved ");
-       // this.isLoggedin=true;
-        this.servicelogin.setUser(data);
-        this.router.navigate(['/products']);
-      }, error=> {
-        console.error("exception occured",error);
-        this.msg ="Bad credentials ,please enter valid email and password";
-      })
+      (data: any) => {
+        console.log("Response received: ", data);
 
+        if (data && data.id) {
+          this.isLoggedin = true;
+          console.log("User logged in: ", data);
 
+          // Utilize the setUser method to store the user in your service.
+          this.servicelogin.setUser(data);
 
+          // Redirect to the products page.
+          this.router.navigate(['/products']);
+        } else {
+          console.error("Invalid response format");
+          this.msg = "Invalid response format";
+        }
+      },
+      (error) => {
+        console.error("Exception occurred", error);
+        this.msg = "Bad credentials, please enter valid email and password !";
+      }
+    );
   }
 
-  logoutUser() {
-    this.isLoggedin = false;
-    this.servicelogin.setUser(null); // Set user to null on logout
-    this.router.navigate(['/login']);
-  }
+
+
+
+
+
 
   protected readonly onsubmit = onsubmit;
 
